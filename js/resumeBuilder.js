@@ -2,16 +2,13 @@
 var bio = {
   "name": "John Laine",
   "role": "Web Developer",
-  "contactInfo": {
+  "contacts": {
     "mobile": "602.741.0261",
     "email": "john.laine5896@gmail.com",
     "github": "https://github.com/johnlaine1",
-    "location": "Mesa, Arizona",
-    "blog": "johnlaine.me",
-    "twitter": "https://twitter.com/JohnLaine11"
+    "location": "Mesa, Arizona"
   },
-  "picture": "images/head-shot.jpg",
-  "welcomeMssg": "Coding... Creating... Collaborating...",
+  "welcomeMessage": "Coding... Creating... Collaborating...",
   "skills": [
     "HTML",
     "CSS",
@@ -19,7 +16,8 @@ var bio = {
     "Jquery",
     "Grunt",
     "Gulp"
-  ]
+  ],
+  "biopic": "images/head-shot.jpg",
 };
 bio.display = function() {
 
