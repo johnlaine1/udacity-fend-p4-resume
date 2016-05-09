@@ -15,11 +15,17 @@ var bio = {
     "JavaScript",
     "Jquery",
     "Grunt",
-    "Gulp"
+    "Gulp",
+    "Git",
+    "MEAN",
+    "Node",
+    "Express"
   ],
   "biopic": "images/head-shot.jpg",
 };
 bio.display = function() {
+
+  ////////// HEADER //////////
 
   // Name and Role.
   // These need to go in this order for the '#topContacts' element to be
@@ -48,6 +54,13 @@ bio.display = function() {
       $("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
     }
   }
+
+  ////////// FOOTER //////////
+
+  $("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+  $("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+  $("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+  $("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 }
 
 var work = {
