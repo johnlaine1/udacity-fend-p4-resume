@@ -5,7 +5,7 @@ var bio = {
   "contacts": {
     "mobile": "602.741.0261",
     "email": "john.laine5896@gmail.com",
-    "github": "https://github.com/johnlaine1",
+    "github": "johnlaine1",
     "location": "Mesa, Arizona"
   },
   "welcomeMessage": "Coding... Creating... Collaborating...",
@@ -21,9 +21,26 @@ var bio = {
 };
 bio.display = function() {
 
-  $("#header").append(HTMLheaderName.replace("%data%", bio.name));
+  // Name and Role.
+  // These need to go in this order for the '#topContacts' element to be
+  // placed correctly.
+  $("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
+  $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
 
-  // Loop through the skills array
+  // Top Contacts.
+  $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+  $("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+  $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+  $("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+
+  // Bio pic.
+  $("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
+
+  // Welsome Message.
+  $("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
+
+  // Skills
+  // Loop through the skills array and add them to the page.
   if (bio.skills.length !== 0) {
     $("#header").append(HTMLskillsStart);
 
