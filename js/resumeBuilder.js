@@ -218,7 +218,3 @@ function display(sections) {
 
 // Display all sections.
 display([bio, work, projects, education]);
-
-
-
-
