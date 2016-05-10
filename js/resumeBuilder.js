@@ -22,7 +22,7 @@ var bio = {
   "biopic": "images/head-shot.jpg",
 };
 bio.display = function() {
-
+  'use strict';
   ////////// HEADER //////////
 
   // Name and Role.
@@ -84,6 +84,8 @@ var work = {
   ]
 };
 work.display = function() {
+  'use strict';
+
   // Loop through each job.
   this.jobs.forEach(function(job) {
 
@@ -125,6 +127,7 @@ var education = {
   ]
 };
 education.display = function() {
+  'use strict';
 
   // Loop through each school.
   this.schools.forEach(function(school) {
@@ -177,6 +180,8 @@ var projects = {
   ]
 };
 projects.display = function() {
+  'use strict';
+
   // Start off the project section, this will set up a needed class.
   $("#projects").append(HTMLprojectStart);
 
@@ -201,6 +206,8 @@ projects.display = function() {
 
 //Loop through each sections' display method.
 function display(sections) {
+  'use strict';
+
   sections.forEach(function(section) {
     section.display();
   });
