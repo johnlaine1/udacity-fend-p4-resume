@@ -168,6 +168,10 @@ span {
   text-align: center;
 }
 
+#name {
+  text-transform: uppercase;
+  padding-right: 20px;
+}
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {

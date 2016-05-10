@@ -14,10 +14,8 @@ var bio = {
     "CSS",
     "JavaScript",
     "Jquery",
-    "Grunt",
     "Gulp",
     "Git",
-    "MEAN",
     "Node",
     "Express"
   ],
