@@ -101,18 +101,10 @@ work.display = function() {
 var education = {
   "schools": [
     {
-      "name": "Hard Knocks",
-      "location": "Lawrence, MA",
-      "degree": "Life",
-      "majors": ["spanish", "cooking"],
-      "dates": "1996 - 2000",
-      "url": "http://someschool.com"
-    },
-    {
       "name": "Harvard",
       "location": "Boston, MA",
-      "degree": "Computer Science",
-      "majors": ["software development", "cooking"],
+      "degree": "Masters",
+      "majors": ["software development", "robotics"],
       "dates": "2000 - 2004",
       "url": "http://someschool.com"
     }
@@ -139,13 +131,14 @@ education.display = function() {
     $("#education").append(HTMLschoolStart);
 
     $(".education-entry:last").append(
-        HTMLschoolName.replace("%data%", school.name),
+        HTMLschoolName.replace("%data%", school.name) +
         HTMLschoolDegree.replace("%data%", school.degree),
         HTMLschoolDates.replace("%data%", school.dates),
         HTMLschoolLocation.replace("%data%", school.location),
         HTMLschoolMajor.replace("%data%", school.major)
     );
   });
+
   // Place the "Online Courses" header
   $("#education").append(HTMLonlineClasses);
 
@@ -174,7 +167,7 @@ var projects = {
     },
     {
       "title": "Project 2",
-      "dates": "2020",
+      "dates": "2016",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sagittis eget turpis in fermentum. Duis feugiat nisi eu felis accumsan ornare. Integer sagittis diam nec urna finibus, eget pellentesque velit consectetur. Curabitur vitae interdum leo, eget lobortis justo. Cras id nibh id ligula vehicula iaculis at porttitor diam. Phasellus accumsan ac leo sed aliquet. Nam consectetur augue at elementum luctus. ",
       "images" : [
         "https://placehold.it/100x100",
@@ -206,14 +199,16 @@ projects.display = function() {
 
 }
 
-function displayAll() {
-bio.display();
-work.display();
-projects.display();
-education.display();
+
+//Loop through each sections' display method.
+function display(sections) {
+  sections.forEach(function(section) {
+    section.display();
+  });
 }
 
-displayAll();
+// Display all sections.
+display([bio, work, projects, education]);
 
 
 
