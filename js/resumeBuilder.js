@@ -34,10 +34,12 @@ bio.display = function() {
   $("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
 
   // Top Contacts.
-  $("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-  $("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-  $("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-  $("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
+  $("#topContacts").append(
+    HTMLmobile.replace("%data%", bio.contacts.mobile),
+    HTMLemail.replace("%data%", bio.contacts.email),
+    HTMLgithub.replace("%data%", bio.contacts.github),
+    HTMLlocation.replace("%data%", bio.contacts.location)
+  );
 
   // Bio pic.
   $("#header").append(HTMLbioPic.replace("%data%", bio.biopic));
@@ -57,11 +59,13 @@ bio.display = function() {
 
   ////////// FOOTER //////////
 
-  $("#footerContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
-  $("#footerContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
-  $("#footerContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
-  $("#footerContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
-}
+  $("#footerContacts").append(
+    HTMLmobile.replace("%data%", bio.contacts.mobile),
+    HTMLemail.replace("%data%", bio.contacts.email),
+    HTMLgithub.replace("%data%", bio.contacts.github),
+    HTMLlocation.replace("%data%", bio.contacts.location)
+  );
+};
 
 var work = {
   "jobs": [
@@ -82,19 +86,17 @@ var work = {
   ]
 };
 work.display = function() {
+  // Loop through each job.
   this.jobs.forEach(function(job) {
 
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
-    var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
-    var formattedDates = HTMLworkDates.replace("%data%", job.dates);
-    var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
-    var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
-
     $("#workExperience").append(HTMLworkStart);
-    $(".work-entry:last").append(formattedEmployer + formattedTitle);
-    $(".work-entry:last").append(formattedDates);
-    $(".work-entry:last").append(formattedLocation);
-    $(".work-entry:last").append(formattedDescription);
+    $(".work-entry:last").append(
+      HTMLworkEmployer.replace("%data%", job.employer) +
+      HTMLworkTitle.replace("%data%", job.title),
+      HTMLworkDates.replace("%data%", job.dates),
+      HTMLworkLocation.replace("%data%", job.location),
+      HTMLworkDescription.replace("%data%", job.description)
+    );
   });
 };
 
@@ -104,7 +106,7 @@ var education = {
       "name": "Harvard",
       "location": "Boston, MA",
       "degree": "Masters",
-      "majors": ["software development", "robotics"],
+      "majors": ["CS"],
       "dates": "2000 - 2004",
       "url": "http://someschool.com"
     }
@@ -128,14 +130,14 @@ education.display = function() {
 
   // Loop through each school.
   this.schools.forEach(function(school) {
-    $("#education").append(HTMLschoolStart);
 
+    $("#education").append(HTMLschoolStart);
     $(".education-entry:last").append(
         HTMLschoolName.replace("%data%", school.name) +
         HTMLschoolDegree.replace("%data%", school.degree),
         HTMLschoolDates.replace("%data%", school.dates),
         HTMLschoolLocation.replace("%data%", school.location),
-        HTMLschoolMajor.replace("%data%", school.major)
+        HTMLschoolMajor.replace("%data%", school.majors[0])
     );
   });
 
@@ -180,9 +182,8 @@ projects.display = function() {
   // Start off the project section, this will set up a needed class.
   $("#projects").append(HTMLprojectStart);
 
-  // Here we loop through each of the projects, format the HTML and append it
-  // to the page.
   this.projects.forEach(function(project) {
+
     $(".project-entry:last").append(
         HTMLprojectTitle.replace("%data%", project.title),
         HTMLprojectDates.replace("%data%", project.dates),
@@ -205,6 +206,9 @@ function display(sections) {
   sections.forEach(function(section) {
     section.display();
   });
+
+  // Add a map
+  $("#mapDiv").append(googleMap);
 }
 
 // Display all sections.
@@ -212,12 +216,4 @@ display([bio, work, projects, education]);
 
 
 
-
-
-
-
-
-
-
-$("#mapDiv").append(googleMap);
 
