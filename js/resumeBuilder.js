@@ -50,7 +50,7 @@ bio.display = function() {
   if (bio.skills.length !== 0) {
     $("#header").append(HTMLskillsStart);
 
-    for (var i = 0; i < bio.skills.length; i++) {
+    for (var i = 0, len = bio.skills.length; i < len; i++) {
       $("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
     }
   }
